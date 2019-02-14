@@ -6,6 +6,8 @@ public enum Skills {
 
     private String skill;
     private int points;
+    private static int totalPoints;
+    public static final int MAX_POINTS = 16;
 
     private Skills(String skill, int points) {
         this.skill = skill;
