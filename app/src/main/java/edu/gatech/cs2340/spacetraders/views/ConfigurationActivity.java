@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     private TextView points;
     private EditText nameInput;
     private Spinner difficultySpinner;
+    private Button setupPlayer;
 
     private Player player;
 
@@ -36,6 +38,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         points = (TextView) findViewById(R.id.points_header);
         nameInput = (EditText) findViewById(R.id.name_input);
         difficultySpinner = (Spinner) findViewById(R.id.difficulty_spinner);
+        setupPlayer = (Button) findViewById(R.id.setup_player);
 
 
         ArrayAdapter<Difficulty> adapter = new ArrayAdapter<Difficulty>(this,
@@ -47,10 +50,17 @@ public class ConfigurationActivity extends AppCompatActivity {
 
         player = new Player();
 
-        Log.d("PLAYER_INFO", "" + player.getAvailablePoints());
-        points.setText(String.format("%d", player.getAvailablePoints()));
+        updatePoints();
         points.setOnClickListener((view) -> {
             player.setAvailablePoints(player.getAvailablePoints() - 1);
+            updatePoints();
+            //Log.d("PLAYER_INFO", "" + player.getAvailablePoints());
         });
     }
+
+    private void updatePoints() {
+        points.setText(String.format("%d", player.getAvailablePoints()));
+    }
+
+
 }
