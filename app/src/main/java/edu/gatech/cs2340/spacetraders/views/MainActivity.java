@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton startButton = (ImageButton) findViewById(R.id.istart_new_button);
         startButton.setOnClickListener((view) -> {
-            Intent intent = new Intent(MainActivity.this, ConfigurationAcitivty.class);
+            Intent intent = new Intent(MainActivity.this, ConfigurationActivity.class);
             startActivity(intent);
         });
         //Git test

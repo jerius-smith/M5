@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">SpaceTraders</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_configuration">ConfigurationActivity</string>
     <string name="start">START</string>
-    <string name="title_activity_configuration_acitivty">ConfigurationAcitivty</string>
 </resources>
