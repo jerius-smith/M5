@@ -1,7 +1,9 @@
 package edu.gatech.cs2340.spacetraders.views;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -22,6 +24,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     private Player player;
 
+    @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +45,10 @@ public class ConfigurationActivity extends AppCompatActivity {
         difficultySpinner.setAdapter(adapter);
         difficultySpinner.setSelection(0);
 
-        points.setText(player.getAvailablePoints());
+        player = new Player();
+
+        Log.d("PLAYER_INFO", "" + player.getAvailablePoints());
+        points.setText(String.format("%d", player.getAvailablePoints()));
         points.setOnClickListener((view) -> {
             player.setAvailablePoints(player.getAvailablePoints() - 1);
         });

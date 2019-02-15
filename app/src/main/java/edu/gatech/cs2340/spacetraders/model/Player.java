@@ -9,8 +9,8 @@ public class Player {
     private Ship ship;
     private int availablePoints;
 
-    public Player(String name) {
-        this(name, Difficulty.BEGINNER);
+    public Player() {
+        this("", Difficulty.BEGINNER);
     }
 
     public Player(String name, Difficulty preferredDifficulty) {
