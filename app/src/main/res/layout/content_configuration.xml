@@ -89,7 +89,7 @@
         android:layout_marginLeft="20dp"
         android:layout_toEndOf="@+id/difficulty_header" />
 
-    <EditText
+    <TextView
         android:id="@+id/points_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -98,6 +98,5 @@
         android:layout_alignParentRight="false"
         android:layout_toRightOf="@+id/skill_header"
         android:ems="10"
-        android:inputType="number"
         android:textAlignment="center" />
 </RelativeLayout>
