@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +22,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     private TextView skillHeader;
     private TextView points;
     private EditText nameInput;
+    private EditText pointsInput;
     private Spinner difficultySpinner;
     private Button setupPlayer;
 
@@ -37,6 +39,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         skillHeader = (TextView) findViewById(R.id.skill_header);
         points = (TextView) findViewById(R.id.points_header);
         nameInput = (EditText) findViewById(R.id.name_input);
+        pointsInput = (EditText) findViewById(R.id.enter_points);
         difficultySpinner = (Spinner) findViewById(R.id.difficulty_spinner);
         setupPlayer = (Button) findViewById(R.id.setup_player);
 
@@ -51,15 +54,26 @@ public class ConfigurationActivity extends AppCompatActivity {
         player = new Player();
 
         updatePoints();
-        points.setOnClickListener((view) -> {
-            player.setAvailablePoints(player.getAvailablePoints() - 1);
-            updatePoints();
-            //Log.d("PLAYER_INFO", "" + player.getAvailablePoints());
-        });
+
+        pointsInput.setOnEditorActionListener(((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                Log.d("ELEMENTS", "Done editing");
+                updatePoints();
+            }
+            return true;
+        }));
+
+//        points.setOnClickListener((view) -> {
+//            player.setAvailablePoints(player.getAvailablePoints() - 1);
+//            updatePoints();
+//            //Log.d("PLAYER_INFO", "" + player.getAvailablePoints());
+//        });
     }
 
     private void updatePoints() {
-        points.setText(String.format("%d", player.getAvailablePoints()));
+        //points.setText(String.format("%d", player.getAvailablePoints()));
+        points.setText(pointsInput.getText());
+        pointsInput.getText().clear();
     }
 
 

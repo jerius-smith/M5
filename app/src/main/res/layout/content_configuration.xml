@@ -20,10 +20,10 @@
         android:layout_alignParentEnd="false"
         android:layout_alignParentBottom="false"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="0dp"
-        android:text="Name:"
+        android:text="@string/name"
         android:textSize="24sp" />
 
     <TextView
@@ -39,7 +39,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="0dp"
-        android:text="Difficulty:"
+        android:text="@string/difficulty"
         android:textSize="24sp" />
 
     <TextView
@@ -55,7 +55,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="0dp"
-        android:text="Skill Points: "
+        android:text="@string/skill_points"
         android:textSize="24sp" />
 
     <EditText
@@ -69,7 +69,7 @@
         android:layout_marginTop="187dp"
         android:layout_toRightOf="@+id/name_header"
         android:ems="10"
-        android:hint="Enter name"
+        android:hint="@string/enter_name"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textSize="18sp" />
@@ -95,14 +95,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/difficulty_spinner"
         android:layout_alignBaseline="@+id/skill_header"
-        android:layout_alignRight="@+id/difficulty_spinner"
+        android:layout_alignEnd="@+id/difficulty_spinner"
         android:layout_alignBottom="@+id/skill_header"
-        android:layout_alignParentRight="false"
+        android:layout_alignParentEnd="false"
         android:layout_alignParentBottom="false"
         android:layout_marginTop="51dp"
         android:layout_toRightOf="@+id/skill_header"
         android:ems="10"
-        android:textAlignment="viewStart"
+        android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -112,8 +112,126 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
-        android:text="SETUP"
+        android:layout_marginBottom="20dp"
+        android:text="@string/setup"
         android:textSize="20sp" />
+
+    <RadioGroup
+        android:id="@+id/skill_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/skill_header"
+        android:layout_alignStart="@+id/skill_header"
+        android:layout_alignParentStart="false"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="200dp"
+        android:orientation="vertical"
+        android:padding="0dp">
+
+        <RadioButton
+            android:id="@+id/pilot_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="@string/pilot"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/fighter_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="@string/fighter"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/trader_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="@string/trader"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/engineer_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="@string/engineer"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/enter_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/skill_group"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:ems="4"
+        android:hint="Points"
+        android:inputType="numberSigned"
+        android:maxLength="2"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/enter_points"
+        android:layout_below="@+id/points_header"
+        android:layout_alignBaseline="@+id/skill_group"
+        android:layout_alignStart="@+id/points_header"
+        android:layout_alignTop="@+id/skill_group"
+        android:layout_alignRight="@+id/points_header"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/skill_group"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/pilot_points"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="0"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/fighter_points"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="0"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/trader_points"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="0"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/engineer_points"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="0"
+            android:textSize="20sp" />
+    </LinearLayout>
 
 </RelativeLayout>
