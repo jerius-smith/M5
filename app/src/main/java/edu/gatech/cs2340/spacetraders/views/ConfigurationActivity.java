@@ -8,12 +8,18 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import edu.gatech.cs2340.spacetraders.R;
 import edu.gatech.cs2340.spacetraders.model.Difficulty;
 import edu.gatech.cs2340.spacetraders.model.Player;
+import edu.gatech.cs2340.spacetraders.model.Skills;
 
 public class ConfigurationActivity extends AppCompatActivity {
 
@@ -25,8 +31,11 @@ public class ConfigurationActivity extends AppCompatActivity {
     private EditText pointsInput;
     private Spinner difficultySpinner;
     private Button setupPlayer;
+    private RadioGroup skillsGroup;
+    private Map<RadioButton, TextView> skillRadio;
 
     private Player player;
+    private int availablePoints;
 
     @SuppressLint("DefaultLocale")
     @Override
@@ -42,6 +51,19 @@ public class ConfigurationActivity extends AppCompatActivity {
         pointsInput = (EditText) findViewById(R.id.enter_points);
         difficultySpinner = (Spinner) findViewById(R.id.difficulty_spinner);
         setupPlayer = (Button) findViewById(R.id.setup_player);
+        skillsGroup = (RadioGroup) findViewById(R.id.skill_group);
+        skillsGroup.check(R.id.pilot_radio);
+        skillRadio = new LinkedHashMap<>(4);
+        skillRadio.put((RadioButton) findViewById(R.id.pilot_radio),
+                       (TextView) findViewById(R.id.pilot_points));
+        skillRadio.put((RadioButton) findViewById(R.id.fighter_radio),
+                       (TextView) findViewById(R.id.fighter_points));
+        skillRadio.put((RadioButton) findViewById(R.id.trader_radio),
+                       (TextView) findViewById(R.id.trader_points));
+        skillRadio.put((RadioButton) findViewById(R.id.engineer_radio),
+                       (TextView) findViewById(R.id.engineer_points));
+
+        availablePoints = Skills.MAX_POINTS;
 
 
         ArrayAdapter<Difficulty> adapter = new ArrayAdapter<Difficulty>(this,
@@ -62,17 +84,16 @@ public class ConfigurationActivity extends AppCompatActivity {
             }
             return true;
         }));
-
-//        points.setOnClickListener((view) -> {
-//            player.setAvailablePoints(player.getAvailablePoints() - 1);
-//            updatePoints();
-//            //Log.d("PLAYER_INFO", "" + player.getAvailablePoints());
-//        });
     }
 
     private void updatePoints() {
-        //points.setText(String.format("%d", player.getAvailablePoints()));
-        points.setText(pointsInput.getText());
+       // points.setText(String.valueOf(availablePoints));
+        int input = pointsInput.getInputType();
+
+        skillRadio.forEach((radioButton, textView) -> {
+
+        });
+
         pointsInput.getText().clear();
     }
 
