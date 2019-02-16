@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.spacetraders.views;
 
 import android.annotation.SuppressLint;
+import android.arch.lifecycle.ViewModelProviders;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,7 @@ import edu.gatech.cs2340.spacetraders.R;
 import edu.gatech.cs2340.spacetraders.model.Difficulty;
 import edu.gatech.cs2340.spacetraders.model.Player;
 import edu.gatech.cs2340.spacetraders.model.Skills;
+import edu.gatech.cs2340.spacetraders.viewmodel.ConfigurationViewModel;
 
 public class ConfigurationActivity extends AppCompatActivity {
 
@@ -34,8 +36,9 @@ public class ConfigurationActivity extends AppCompatActivity {
     private RadioGroup skillsGroup;
     private Map<RadioButton, TextView> skillRadio;
 
-    private Player player;
     private int availablePoints;
+
+    ConfigurationViewModel viewModel;
 
     @SuppressLint("DefaultLocale")
     @Override
@@ -73,8 +76,6 @@ public class ConfigurationActivity extends AppCompatActivity {
         difficultySpinner.setAdapter(adapter);
         difficultySpinner.setSelection(0);
 
-        player = new Player();
-
         updatePoints();
 
         pointsInput.setOnEditorActionListener(((v, actionId, event) -> {
@@ -84,6 +85,10 @@ public class ConfigurationActivity extends AppCompatActivity {
             }
             return true;
         }));
+
+        setupPlayer.setOnClickListener(view -> {
+            viewModel = ViewModelProviders.of
+        });
     }
 
     private void updatePoints() {
