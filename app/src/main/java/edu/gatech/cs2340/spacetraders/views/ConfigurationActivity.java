@@ -97,10 +97,8 @@ public class ConfigurationActivity extends AppCompatActivity {
                         Log.d("ELEMENTS", "" + currentInput);
 
                         int difference = currentInput - input;
-                        if (difference > 0) {
+                        if (difference != 0) {
                             availablePoints += difference;
-                        } else if (difference < 0) {
-                            availablePoints -= input;
                         }
 
                         textView.setText(String.valueOf(input));
