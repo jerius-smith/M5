@@ -79,7 +79,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 
         pointsInput.setOnEditorActionListener(((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                Log.d("ELEMENTS", "Done editing");
+                //Log.d("ELEMENTS", "Done editing");
                 updatePoints();
             }
             return true;
@@ -87,13 +87,28 @@ public class ConfigurationActivity extends AppCompatActivity {
     }
 
     private void updatePoints() {
-       // points.setText(String.valueOf(availablePoints));
-        int input = pointsInput.getInputType();
+        int input = (pointsInput.getText().toString().isEmpty())
+                    ? 0 : Integer.valueOf(pointsInput.getText().toString());
 
-        skillRadio.forEach((radioButton, textView) -> {
+            skillRadio.forEach((radioButton, textView) -> {
+                if (skillsGroup.getCheckedRadioButtonId() == radioButton.getId()) {
+                    int currentInput = Integer.valueOf(textView.getText().toString());
+                    if (input >= 0 && input <= availablePoints + currentInput) {
+                        Log.d("ELEMENTS", "" + currentInput);
 
-        });
+                        int difference = currentInput - input;
+                        if (difference > 0) {
+                            availablePoints += difference;
+                        } else if (difference < 0) {
+                            availablePoints -= input;
+                        }
 
+                        textView.setText(String.valueOf(input));
+                    }
+                }
+            });
+
+        points.setText(String.valueOf(availablePoints));
         pointsInput.getText().clear();
     }
 
