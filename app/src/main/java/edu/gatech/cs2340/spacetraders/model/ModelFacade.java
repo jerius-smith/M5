@@ -18,6 +18,6 @@ public class ModelFacade {
         if (player == null) {
             player = new Player(name, prefDifficulty, skillPoints);
         }
-        Log.i("PLAYER", player.toString());
+        Log.d("PLAYER", "\n" + player.toString());
     }
 }

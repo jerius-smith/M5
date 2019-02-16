@@ -87,7 +87,16 @@ public class ConfigurationActivity extends AppCompatActivity {
         }));
 
         setupPlayer.setOnClickListener(view -> {
-            viewModel = ViewModelProviders.of
+            viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
+            String name = nameInput.getText().toString();
+            Difficulty difficulty = (Difficulty) difficultySpinner.getSelectedItem();
+            Skills[] skillPoints = Skills.values();
+            int i = 0;
+            for (TextView point : skillRadio.values()) {
+                skillPoints[i].setPoints(Integer.parseInt(point.getText().toString()));
+                i++;
+            }
+            viewModel.isValidPlayer(name, difficulty, skillPoints);
         });
     }
 

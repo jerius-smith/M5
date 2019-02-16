@@ -63,7 +63,7 @@ public class Player {
     @Override
     public String toString() {
         StringBuilder playerInfo = new StringBuilder();
-        playerInfo.append("Player: " + name)
+        playerInfo.append("\nPlayer: " + name)
                   .append("\nSelected Difficulty: " + preferredDifficulty)
                   .append("\nPilot points: " + skills[0].getPoints())
                   .append("\nFighter points: " + skills[1].getPoints())
