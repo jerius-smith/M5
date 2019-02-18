@@ -22,16 +22,18 @@ public class ConfigurationViewModel extends AndroidViewModel {
 
     public void isValidPlayer(String name, Difficulty prefDifficulty, Skills[] skillPoints) {
         if (name == null || name.isEmpty()) {
-            Toast.makeText(getApplication(), "Player cannot be configured. Please enter a name",
-                           Toast.LENGTH_LONG).show();
+            showToast("Player cannot be configured. Please enter a name", Toast.LENGTH_LONG);
         } else if (prefDifficulty == null) {
-            Toast.makeText(getApplication(), "Player cannot be configured. Please select "
-                                             + "difficulty", Toast.LENGTH_LONG).show();
+            showToast("Player cannot be configured. Please select difficulty", Toast.LENGTH_LONG);
         } else if (Skills.totalPoints() != Skills.MAX_POINTS) {
-            Toast.makeText(getApplication(), "Player cannot be configured. Please allocate "
-                                             + "all the points", Toast.LENGTH_LONG).show();
+            showToast("Player cannot be configured. Please allocate all the points", Toast.LENGTH_LONG);
         } else {
             facade.createPlayer(name, prefDifficulty, skillPoints);
+            showToast(facade.getPlayer().toString(), 5000);
         }
+    }
+
+    private void showToast(String message, int duration) {
+        Toast.makeText(getApplication(), message, duration).show();
     }
 }
