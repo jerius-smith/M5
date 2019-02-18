@@ -5,9 +5,10 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 import edu.gatech.cs2340.spacetraders.model.Difficulty;
 import edu.gatech.cs2340.spacetraders.model.ModelFacade;
-import edu.gatech.cs2340.spacetraders.model.Player;
 import edu.gatech.cs2340.spacetraders.model.Skills;
 
 public class ConfigurationViewModel extends AndroidViewModel {
@@ -26,6 +27,9 @@ public class ConfigurationViewModel extends AndroidViewModel {
         } else if (prefDifficulty == null) {
             Toast.makeText(getApplication(), "Player cannot be configured. Please select "
                                              + "difficulty", Toast.LENGTH_LONG).show();
+        } else if (Skills.totalPoints() != Skills.MAX_POINTS) {
+            Toast.makeText(getApplication(), "Player cannot be configured. Please allocate "
+                                             + "all the points", Toast.LENGTH_LONG).show();
         } else {
             facade.createPlayer(name, prefDifficulty, skillPoints);
         }
