@@ -17,6 +17,10 @@ public class ModelFacade {
     public void createPlayer(String name, Difficulty prefDifficulty, Skills[] skillPoints) {
         if (player == null) {
             player = new Player(name, prefDifficulty, skillPoints);
+        } else {
+            player.setName(name);
+            player.setPreferredDifficulty(prefDifficulty);
+            player.setSkills(skillPoints);
         }
         Log.d("PLAYER", "\n" + player.toString());
     }
