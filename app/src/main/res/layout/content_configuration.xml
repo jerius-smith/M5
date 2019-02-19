@@ -26,7 +26,7 @@
         android:background="@null"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/start_bttn"
-        android:onClick="onAddPressed"/>
+        />
 
     <TextView
         android:id="@+id/name_header"
@@ -105,7 +105,7 @@
         android:layout_marginStart="245dp"
         android:layout_marginBottom="-53dp"
         android:fontFamily="@font/inconsolata"
-        android:text="{points}" />
+        android:text="16" />
 
     <TextView
         android:id="@+id/pilot_header"
