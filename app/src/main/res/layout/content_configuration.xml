@@ -105,7 +105,8 @@
         android:layout_marginStart="245dp"
         android:layout_marginBottom="-53dp"
         android:fontFamily="@font/inconsolata"
-        android:text="16" />
+        android:text="16"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/pilot_header"
@@ -129,8 +130,9 @@
         android:layout_alignBottom="@+id/skill_points"
         android:layout_marginStart="245dp"
         android:layout_marginBottom="-55dp"
-        android:text="0"
-        android:inputType="number" />
+        android:inputType="number"
+        android:maxLength="2"
+        android:text="0" />
 
     <TextView
         android:id="@+id/fighter_header"
@@ -154,8 +156,9 @@
         android:layout_alignBottom="@+id/pilot_skills"
         android:layout_marginStart="245dp"
         android:layout_marginBottom="-48dp"
-        android:text="0"
-        android:inputType="number" />
+        android:inputType="number"
+        android:maxLength="2"
+        android:text="0" />
 
     <TextView
         android:id="@+id/trader_header"
@@ -179,8 +182,9 @@
         android:layout_alignBottom="@+id/fighter_skills"
         android:layout_marginStart="245dp"
         android:layout_marginBottom="-48dp"
-        android:text="0"
-        android:inputType="number" />
+        android:inputType="number"
+        android:maxLength="2"
+        android:text="0" />
 
     <TextView
         android:id="@+id/engineer_header"
@@ -204,8 +208,9 @@
         android:layout_alignBottom="@+id/trader_skills"
         android:layout_marginStart="245dp"
         android:layout_marginBottom="-48dp"
-        android:text="0"
-        android:inputType="number" />
+        android:inputType="number"
+        android:maxLength="2"
+        android:text="0" />
 
 
 </RelativeLayout>

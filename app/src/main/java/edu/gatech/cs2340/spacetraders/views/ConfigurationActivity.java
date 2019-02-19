@@ -109,7 +109,12 @@ public class ConfigurationActivity extends AppCompatActivity {
         int sum = 0;
 
         for (int i = 0; i < skills.length; i++) {
-            skills[i].setPoints(Integer.parseInt(skillsArr[i].getText().toString()));
+            String currentPoints = skillsArr[i].getText().toString();
+            if (currentPoints.isEmpty()) {
+                skillsArr[i].setText("0");
+                currentPoints = skillsArr[i].getText().toString();
+            }
+            skills[i].setPoints(Integer.parseInt(currentPoints));
             sum += skills[i].getPoints();
         }
 
