@@ -7,19 +7,17 @@ public class Player {
     private Difficulty preferredDifficulty;
     private int credits;
     private Ship ship;
-    private int availablePoints;
 
     public Player() {
-        this("", Difficulty.BEGINNER);
+        this("", Difficulty.BEGINNER, Skills.values());
     }
 
-    public Player(String name, Difficulty preferredDifficulty) {
+    public Player(String name, Difficulty preferredDifficulty, Skills[] skillPoints) {
         this.name = name;
         this.preferredDifficulty = preferredDifficulty;
-        this.skills = Skills.values();
+        this.skills = skillPoints;
         this.ship = new Gnat();
         this.credits = 1000;
-        this.availablePoints = Skills.MAX_POINTS;
     }
 
     public String getName() {
@@ -62,11 +60,18 @@ public class Player {
         this.ship = ship;
     }
 
-    public int getAvailablePoints() {
-        return availablePoints;
+    @Override
+    public String toString() {
+        StringBuilder playerInfo = new StringBuilder();
+        playerInfo.append("\t\nPlayer: " + name)
+                  .append("\nSelected Difficulty: " + preferredDifficulty)
+                  .append("\nPilot points: " + skills[0].getPoints())
+                  .append("\nFighter points: " + skills[1].getPoints())
+                  .append("\nTrader points: " + skills[2].getPoints())
+                  .append("\nEngineer points: " + skills[3].getPoints())
+                  .append("\nCredits : " + credits)
+                  .append("\nShip type: " + ship);
+        return playerInfo.toString();
     }
 
-    public void setAvailablePoints(int availablePoints) {
-        this.availablePoints = availablePoints;
-    }
 }

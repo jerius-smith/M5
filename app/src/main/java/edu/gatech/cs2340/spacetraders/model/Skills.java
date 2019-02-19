@@ -14,6 +14,13 @@ public enum Skills {
         this.points = points;
     }
 
+    public static int totalPoints() {
+        int sum = 0;
+        for (Skills curr : values())
+            sum += curr.points;
+        return sum;
+    }
+
     public String getSkill() {
         return skill;
     }
