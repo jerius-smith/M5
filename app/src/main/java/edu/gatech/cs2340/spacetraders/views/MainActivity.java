@@ -8,6 +8,9 @@ import android.widget.ImageButton;
 
 import edu.gatech.cs2340.spacetraders.R;
 
+/**
+ * The type Main activity.
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override

@@ -17,6 +17,9 @@ import edu.gatech.cs2340.spacetraders.model.Difficulty;
 import edu.gatech.cs2340.spacetraders.model.Skills;
 import edu.gatech.cs2340.spacetraders.viewmodel.ConfigurationViewModel;
 
+/**
+ * The type Configuration activity.
+ */
 public class ConfigurationActivity extends AppCompatActivity {
 
 
@@ -28,6 +31,9 @@ public class ConfigurationActivity extends AppCompatActivity {
     private EditText[] skillsArr = new EditText[4];
     private Skills[] skills;
 
+    /**
+     * The View model.
+     */
     ConfigurationViewModel viewModel;
 
     @SuppressLint("DefaultLocale")

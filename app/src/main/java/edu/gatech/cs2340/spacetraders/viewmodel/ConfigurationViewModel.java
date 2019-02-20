@@ -11,15 +11,30 @@ import edu.gatech.cs2340.spacetraders.model.Difficulty;
 import edu.gatech.cs2340.spacetraders.model.ModelFacade;
 import edu.gatech.cs2340.spacetraders.model.Skills;
 
+/**
+ * The type Configuration view model.
+ */
 public class ConfigurationViewModel extends AndroidViewModel {
 
     private ModelFacade facade;
 
+    /**
+     * Instantiates a new Configuration view model.
+     *
+     * @param application the application
+     */
     public ConfigurationViewModel(@NonNull Application application) {
         super(application);
         facade = ModelFacade.getInstance();
     }
 
+    /**
+     * Is valid player.
+     *
+     * @param name           the name
+     * @param prefDifficulty the pref difficulty
+     * @param skillPoints    the skill points
+     */
     public void isValidPlayer(String name, Difficulty prefDifficulty, Skills[] skillPoints) {
         if (name == null || name.isEmpty()) {
             showToast("Player cannot be configured. Please enter a name", Toast.LENGTH_LONG);
